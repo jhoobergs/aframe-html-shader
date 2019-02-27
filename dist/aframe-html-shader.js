@@ -98,7 +98,8 @@
 	    fps: { type: 'number', default: 0 },
 	    width: { default: null },
 	    height: { default: null },
-	    ratio: { default: null }
+	    ratio: { default: null },
+	    scrollIntoView: { default: null }
 
 	  },
 
@@ -217,7 +218,8 @@
 	        fps = data.fps,
 	        width = data.width,
 	        height = data.height,
-	        ratio = data.ratio;
+	        ratio = data.ratio,
+	        scrollIntoView = data.scrollIntoView;
 
 	    this.__width = width || this.schema.width.default;
 	    this.__height = height || this.schema.height.default;
@@ -241,6 +243,10 @@
 	      this.__ratio = ratio;
 	    } else {
 	      this.__ratio = this.schema.ratio.default;
+	    }
+
+	    if (scrollIntoView) {
+	      this.__scrollIntoView = scrollIntoView;
 	    }
 
 	    /* fps */
@@ -456,6 +462,11 @@
 	    this.__nextTime = null;
 	    if (!this.__targetEl) {
 	      return;
+	    }
+
+	    if (this.__scrollIntoView) {
+	      var elmnt = document.getElementById(this.__scrollIntoView);
+	      elmnt.scrollIntoView();
 	    }
 
 	    var _targetEl$getBoundin = this.__targetEl.getBoundingClientRect(),

@@ -9,7 +9,7 @@
   <body>
     <a-scene>
       <a-entity geometry="primitive: box" material="shader: html; target: #boxHTML" position="0 0 -5"></a-entity>
-      <a-plane material="shader: html; target: #planeHTML; ratio: height; transparent: true; side: double" position="0 2 -6"></a-plane>
+      <a-plane material="shader: html; target: #planeHTML; ratio: height; transparent: true; side: double; scrollIntoView: last" position="0 2 -6"></a-plane>
       <a-sky material="shader: html; target: #skyHTML"></a-sky>
     </a-scene>
 
@@ -19,9 +19,16 @@
         <p style="background: rgb(30, 30, 30); position: absolute; top: 25px; width: 500px">CHEESECAKE FOR YOU</p>
       </div>
     </div>
-    <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
-      <div id="planeHTML" style="background: linear-gradient(red, yellow, green); width: 500px; height: 200px; font-size: 64px; padding-top: 15px; color: #222; font-weight: 600; display: flex; align-items: center; text-align: center; border-radius: 200px">
-        <p style="border: 1px #FFF">ARE YOU HUNGRY?</p>
+    <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: 4; overflow: auto">
+      <div id="planeHTML" style="background: linear-gradient(red, yellow, green); width: 500px; height: 200px; font-size: 20px;color: #222; font-weight: 600; align-items: center; text-align: center; border-radius: 200px; overflow: auto">
+        <p style="border: 1px #FFF">ARE YOU HUNGRY1?</p>
+        <p style="border: 1px #FFF">ARE YOU HUNGRY2?</p>
+        <p style="border: 1px #FFF">ARE YOU HUNGRY3?</p>
+        <p style="border: 1px #FFF">ARE YOU HUNGRY4?</p>
+        <p style="border: 1px #FFF">ARE YOU HUNGRY5?</p>
+        <p style="border: 1px #FFF">ARE YOU HUNGRY6?</p>
+        <p style="border: 1px #FFF">ARE YOU HUNGRY7?</p>
+        <p id='last' style="border: 1px #FFF">ARE YOU HUNGRY8?</p>
       </div>
     </div>
     <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">

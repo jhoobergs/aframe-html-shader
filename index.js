@@ -48,6 +48,7 @@ AFRAME.registerShader('html', {
     width: { default: null },
     height: { default: null },
     ratio: { default: null },
+    scrollIntoView: { default: null }
 
   },
 
@@ -156,7 +157,7 @@ AFRAME.registerShader('html', {
    */
   __updateTexture (data) {
 
-    const { target, fps, width, height, ratio } = data
+    const { target, fps, width, height, ratio, scrollIntoView } = data
     this.__width = width || this.schema.width.default
     this.__height = height || this.schema.height.default
 
@@ -180,6 +181,10 @@ AFRAME.registerShader('html', {
     }
     else {
       this.__ratio = this.schema.ratio.default
+    }
+
+    if(scrollIntoView){
+      this.__scrollIntoView = scrollIntoView
     }
 
     /* fps */
@@ -380,6 +385,12 @@ AFRAME.registerShader('html', {
   __render () {
     this.__nextTime = null
     if (!this.__targetEl) { return }
+
+    if(this.__scrollIntoView){
+      var elmnt = document.getElementById(this.__scrollIntoView);
+      elmnt.scrollIntoView();
+    }
+
     const { width, height } = this.__targetEl.getBoundingClientRect()
     html2canvas(this.__targetEl, {
       background: undefined,
