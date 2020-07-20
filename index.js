@@ -387,8 +387,8 @@ AFRAME.registerShader('html', {
     if (!this.__targetEl) { return }
 
     if(this.__scrollIntoView){
-      var elmnt = document.getElementById(this.__scrollIntoView);
-      elmnt.scrollIntoView();
+      var elmnts = document.querySelectorAll(this.__scrollIntoView);
+      elmnts[0].scrollIntoView();
     }
 
     const { width, height } = this.__targetEl.getBoundingClientRect()

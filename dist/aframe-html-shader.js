@@ -465,8 +465,8 @@
 	    }
 
 	    if (this.__scrollIntoView) {
-	      var elmnt = document.getElementById(this.__scrollIntoView);
-	      elmnt.scrollIntoView();
+	      var elmnts = document.querySelectorAll(this.__scrollIntoView);
+	      elmnts[0].scrollIntoView();
 	    }
 
 	    var _targetEl$getBoundin = this.__targetEl.getBoundingClientRect(),
